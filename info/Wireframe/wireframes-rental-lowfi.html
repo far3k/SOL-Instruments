@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Rental - Low-Fidelity Wireframes</title>
+    <style>
+      :root {
+        --bg: #eef2f7;
+        --paper: #ffffff;
+        --ink: #111827;
+        --muted: #6b7280;
+        --line: #1f2937;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+      }
+      .container { max-width: 1200px; margin: 22px auto; padding: 0 14px 32px; }
+      .header {
+        border: 2px solid var(--line);
+        background: var(--paper);
+        padding: 12px;
+        margin-bottom: 14px;
+      }
+      h1 { margin: 0 0 6px; font-size: 24px; }
+      .muted { color: var(--muted); margin: 0; }
+      .frame {
+        border: 2px solid var(--line);
+        background: var(--paper);
+        padding: 10px;
+        margin-top: 14px;
+      }
+      .frame-title {
+        font-weight: 700;
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+        border-bottom: 2px dashed var(--line);
+      }
+      .nav {
+        border: 2px solid var(--line);
+        display: grid;
+        grid-template-columns: 180px 1fr 210px;
+        gap: 8px;
+        padding: 8px;
+        margin-bottom: 8px;
+      }
+      .box {
+        border: 2px solid var(--line);
+        padding: 8px;
+        min-height: 36px;
+      }
+      .btn {
+        display: inline-block;
+        border: 2px solid var(--line);
+        padding: 4px 8px;
+        margin-right: 6px;
+      }
+      .two-col { display: grid; grid-template-columns: 280px 1fr; gap: 8px; }
+      .three-col { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; }
+      .cards { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; }
+      .card { border: 2px solid var(--line); padding: 8px; min-height: 150px; }
+      .img { border: 2px dashed var(--line); height: 66px; margin-bottom: 8px; }
+      .table .row {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr;
+        border: 2px solid var(--line);
+        border-bottom: 0;
+      }
+      .table .row:last-child { border-bottom: 2px solid var(--line); }
+      .table .row > div { padding: 7px; border-right: 2px solid var(--line); }
+      .table .row > div:last-child { border-right: 0; }
+      .kpis { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; }
+      .small { font-size: 13px; color: var(--muted); }
+      @media (max-width: 980px) {
+        .nav { grid-template-columns: 1fr; }
+        .two-col, .three-col { grid-template-columns: 1fr; }
+        .cards { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .kpis { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="header">
+        <h1>Music Instrument Rental Platform - Low-Fidelity Wireframes</h1>
+        <p class="muted">
+          Based on your current project style (auth pages, catalog cards, details view, dashboard). This set is enough for around half of the implementation scope.
+        </p>
+        <p class="muted" style="margin-top:6px;">
+          Pro Add-on included: Store pages + public website pages (FAQ/Contact/About) for a unified Basic + Pro delivery.
+        </p>
+      </section>
+
+      <section class="frame">
+        <div class="frame-title">1) Public Landing / Welcome</div>
+        <div class="nav">
+          <div class="box">Logo + Platform Name</div>
+          <div class="box">Home | Browse Instruments | Pricing</div>
+          <div class="box">Register | Login</div>
+        </div>
+        <div class="box" style="min-height:120px;">
+          Hero Section: "Rent instruments before buying"
+          <div style="margin-top:8px;">
+            <span class="btn">Start Browsing</span>
+            <span class="btn">Create Account</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="frame-title">2) Authentication (Login / Register)</div>
+        <div class="three-col">
+          <div class="box" style="min-height:180px;">
+            Login Form
+            <div class="small">Email, Password, Login button, Error message area</div>
+          </div>
+          <div class="box" style="min-height:180px;">
+            Register Form
+            <div class="small">First Name, Last Name, Email, Password, Confirm Password, Profile Picture</div>
+          </div>
+          <div class="box" style="min-height:180px;">
+            Validation Notes
+            <div class="small">Required fields, password rule, email unique, inline feedback</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="frame-title">3) Customer Home Dashboard</div>
+        <div class="nav">
+          <div class="box">Avatar + My Account</div>
+          <div class="box">Home | Catalog | My Rentals | Profile</div>
+          <div class="box">Logout</div>
+        </div>
+        <div class="kpis">
+          <div class="box">Available Instruments</div>
+          <div class="box">Pending Requests</div>
+          <div class="box">Approved Rentals</div>
+          <div class="box">Completed Rentals</div>
+        </div>
+        <div class="box" style="margin-top:8px;">
+          Quick actions: Browse Instruments | View My Rentals | Edit Profile
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="frame-title">4) Instrument Catalog (Core browsing page)</div>
+        <div class="nav">
+          <div class="box">Logo + User</div>
+          <div class="box">Catalog | My Rentals | Wishlist/Profile</div>
+          <div class="box">Logout</div>
+        </div>
+        <div class="two-col">
+          <div class="box">
+            Filters
+            <div class="small">Category: Strings / Percussion / Woodwind / Brass / Keyboard</div>
+            <div class="small">Sort: Daily Price Low-High / High-Low</div>
+            <div class="small">Availability: Available only</div>
+          </div>
+          <div>
+            <div class="box">Search by instrument name</div>
+            <div class="cards" style="margin-top:8px;">
+              <div class="card"><div class="img"></div>Name<br/>Category<br/>$ Daily Price<br/><span class="btn">View Details</span></div>
+              <div class="card"><div class="img"></div>Name<br/>Category<br/>$ Daily Price<br/><span class="btn">View Details</span></div>
+              <div class="card"><div class="img"></div>Name<br/>Category<br/>$ Daily Price<br/><span class="btn">View Details</span></div>
+              <div class="card"><div class="img"></div>Name<br/>Category<br/>$ Daily Price<br/><span class="btn">View Details</span></div>
+              <div class="card"><div class="img"></div>Name<br/>Category<br/>$ Daily Price<br/><span class="btn">View Details</span></div>
+              <div class="card"><div class="img"></div>Name<br/>Category<br/>$ Daily Price<br/><span class="btn">View Details</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="frame-title">5) Instrument Details + Rental CTA</div>
+        <div class="nav">
+          <div class="box">Logo + User</div>
+          <div class="box">Back to Catalog | My Rentals</div>
+          <div class="box">Logout</div>
+        </div>
+        <div class="two-col">
+          <div class="box" style="min-height:260px;">Large Instrument Image Placeholder</div>
+          <div class="box">
+            Instrument Name<br/>
+            Category<br/>
+            Condition<br/>
+            Daily Rental Price<br/>
+            Availability Status<br/>
+            Description<br/><br/>
+            <span class="btn">Request Rental</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="frame-title">6) Rental Request Form</div>
+        <div class="box">Selected Instrument Summary (Name + Daily Price + Condition)</div>
+        <div class="three-col" style="margin-top:8px;">
+          <div class="box">Start Date</div>
+          <div class="box">End Date</div>
+          <div class="box">Status preview: Pending</div>
+        </div>
+        <div class="box" style="min-height:100px; margin-top:8px;">Purpose / Reason for rental</div>
+        <div class="box" style="margin-top:8px;">Validation area: no past date, end date > start date</div>
+        <div style="margin-top:8px;">
+          <span class="btn">Submit Request</span>
+          <span class="btn">Cancel</span>
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="frame-title">7) My Rentals (Customer)</div>
+        <div class="row" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+          <div class="box">Filter by status (pending/approved/rejected/completed)</div>
+          <div class="box">Search by instrument</div>
+        </div>
+        <div class="table">
+          <div class="row">
+            <div><strong>Instrument</strong></div>
+            <div><strong>Start</strong></div>
+            <div><strong>End</strong></div>
+            <div><strong>Status</strong></div>
+            <div><strong>Actions</strong></div>
+          </div>
+          <div class="row">
+            <div>Yamaha Guitar</div><div>2026-05-01</div><div>2026-05-10</div><div>Pending</div><div>Cancel Request</div>
+          </div>
+          <div class="row">
+            <div>Violin Student Model</div><div>2026-04-10</div><div>2026-04-18</div><div>Approved</div><div>View</div>
+          </div>
+          <div class="row">
+            <div>Digital Piano</div><div>2026-03-01</div><div>2026-03-12</div><div>Completed</div><div>View</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="frame-title">8) Admin Dashboard + Management</div>
+        <div class="nav">
+          <div class="box">Admin Panel + Avatar</div>
+          <div class="box">Dashboard | Instruments | Categories | Rental Requests | Users</div>
+          <div class="box">Logout</div>
+        </div>
+        <div class="kpis">
+          <div class="box">Total Instruments</div>
+          <div class="box">Pending Requests</div>
+          <div class="box">Active Rentals</div>
+          <div class="box">Blocked Users</div>
+        </div>
+        <div class="two-col" style="margin-top:8px;">
+          <div class="box" style="min-height:140px;">
+            Quick Actions
+            <div class="small">Add Instrument</div>
+            <div class="small">Add Category</div>
+            <div class="small">View Pending Requests</div>
+          </div>
+          <div class="box" style="min-height:140px;">
+            Latest Rental Requests Table
+            <div class="small">Approve | Reject | Mark as Returned</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="frame-title">9) Store Listing (Pro Add-on)</div>
+        <div class="nav">
+          <div class="box">Logo + User</div>
+          <div class="box">Home | Rentals | Store | FAQ | Contact</div>
+          <div class="box">Cart | Logout</div>
+        </div>
+        <div class="two-col">
+          <div class="box">
+            Product Filters
+            <div class="small">Category, Price Range, Sort by Price</div>
+            <div class="small">Optional: Supplier filter</div>
+          </div>
+          <div>
+            <div class="box">Search products by name</div>
+            <div class="cards" style="margin-top:8px;">
+              <div class="card"><div class="img"></div>Product Name<br/>$ Price<br/><span class="btn">View Details</span><span class="btn">Add to Cart</span></div>
+              <div class="card"><div class="img"></div>Product Name<br/>$ Price<br/><span class="btn">View Details</span><span class="btn">Add to Cart</span></div>
+              <div class="card"><div class="img"></div>Product Name<br/>$ Price<br/><span class="btn">View Details</span><span class="btn">Add to Cart</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="frame-title">10) Product Detail + Cart (Pro Add-on)</div>
+        <div class="two-col">
+          <div class="box" style="min-height:250px;">Large Product Image</div>
+          <div class="box">
+            Product Name<br/>
+            Price<br/>
+            Description<br/>
+            Supplier info<br/>
+            Stock/Availability badge<br/><br/>
+            Quantity selector<br/>
+            <span class="btn">Add to Cart</span>
+            <span class="btn">Back to Store</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="frame-title">11) Cart + Checkout + My Orders (Pro Add-on)</div>
+        <div class="box">Cart Items Table: Product | Qty | Unit Price | Subtotal | Remove</div>
+        <div class="three-col" style="margin-top:8px;">
+          <div class="box">Order Summary (total amount)</div>
+          <div class="box">Checkout Form (name, phone, address)</div>
+          <div class="box">Place Order button + validation notes</div>
+        </div>
+        <div class="box" style="margin-top:8px;">
+          My Orders Table: Order ID | Date | Status | Total | View Details
+        </div>
+      </section>
+
+      <section class="frame">
+        <div class="frame-title">12) Public Pages: FAQ + Contact + About (Pro Add-on)</div>
+        <div class="three-col">
+          <div class="box" style="min-height:170px;">
+            FAQ Page
+            <div class="small">Accordion list: Rental / Store / Account questions</div>
+            <div class="small">Optional search box</div>
+          </div>
+          <div class="box" style="min-height:170px;">
+            Contact Page
+            <div class="small">Form: Name, Email, Subject, Message</div>
+            <div class="small">Submit status message (success/error)</div>
+          </div>
+          <div class="box" style="min-height:170px;">
+            About Page
+            <div class="small">Mission, team, why rent before buy</div>
+            <div class="small">Call to action: Browse Rentals / Visit Store</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

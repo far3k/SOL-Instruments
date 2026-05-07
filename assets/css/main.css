@@ -1,0 +1,561 @@
+/* SOL — shared layout */
+:root {
+    --sol-nav-bg: linear-gradient(135deg, #0f2744 0%, #203058 50%, #0f2744 100%);
+    --sol-card-border: rgba(15, 23, 42, 0.08);
+    --sol-page-bg: linear-gradient(160deg, #f1f5f9 0%, #e2e8f0 50%, #f8fbfc 100%);
+
+    /* Navy replaces Bootstrap default blue for primary + links site-wide */
+    --sol-navy: #0f2744;
+    --sol-navy-hover: #16365c;
+    --sol-navy-active: #0a1a2e;
+    /* SweetAlert2 cancel / secondary tone */
+    --sol-swal-cancel: #64748b;
+    --bs-primary: var(--sol-navy);
+    --bs-primary-rgb: 15, 39, 68;
+    --bs-link-color: var(--sol-navy);
+    --bs-link-hover-color: var(--sol-navy-active);
+    --bs-focus-ring-color: rgba(15, 39, 68, 0.28);
+}
+
+/* Solid + outline primary buttons (Bootstrap CDN uses fixed blues otherwise) */
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--sol-navy);
+    --bs-btn-border-color: var(--sol-navy);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--sol-navy-hover);
+    --bs-btn-hover-border-color: var(--sol-navy-hover);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--sol-navy-active);
+    --bs-btn-active-border-color: var(--sol-navy-active);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--sol-navy);
+    --bs-btn-disabled-border-color: var(--sol-navy);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--sol-navy);
+    --bs-btn-border-color: var(--sol-navy);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--sol-navy);
+    --bs-btn-hover-border-color: var(--sol-navy);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--sol-navy-active);
+    --bs-btn-active-border-color: var(--sol-navy-active);
+    --bs-btn-disabled-color: var(--sol-navy);
+    --bs-btn-disabled-border-color: var(--sol-navy);
+}
+
+/* Badges and soft primary tints */
+.badge.bg-primary {
+    background-color: rgb(var(--bs-primary-rgb)) !important;
+}
+
+.bg-primary.bg-opacity-10 {
+    --bs-bg-opacity: 0.12;
+}
+
+/* SweetAlert2 — match SOL cards / navy (see assets/js/sol-swal.js) */
+.sol-swal-popup {
+    border-radius: 1rem;
+    padding: 1.5rem 1.25rem 1.25rem;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.sol-swal-popup .swal2-title {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.sol-swal-popup .swal2-html-container,
+.sol-swal-popup .swal2-content {
+    color: #334155;
+}
+
+.sol-swal-confirm:focus,
+.sol-swal-cancel:focus {
+    box-shadow: 0 0 0 3px rgba(15, 39, 68, 0.28);
+}
+
+body.sol-body {
+    background: var(--sol-page-bg);
+    min-height: 100vh;
+}
+
+/* Home: full-width hero carousel + footer strip */
+.sol-home-slider-wrap .carousel-item {
+    min-height: 320px;
+}
+@media (min-width: 768px) {
+    .sol-home-slider-wrap .carousel-item {
+        min-height: 380px;
+    }
+}
+.sol-home-slide {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-height: 320px;
+}
+/* Flex lives here, not on .carousel-item — avoids Bootstrap carousel-fade swapping display/float
+   on the outer slide (first paint OK, then content jumps to top after transition). */
+.sol-home-slide-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0.75rem;
+    z-index: 1;
+    box-sizing: border-box;
+}
+.sol-home-slide--photo {
+    background-color: #0f2744;
+}
+.sol-home-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    pointer-events: none;
+    z-index: 0;
+}
+.sol-home-slide-fallback-1 {
+    background: linear-gradient(135deg, #0f2744 0%, #3d5a80 55%, #5f7cab 100%);
+}
+.sol-home-slide-fallback-2 {
+    background: linear-gradient(135deg, #0d4f4a 0%, #0f766e 45%, #2dd4bf 100%);
+}
+.sol-home-slide-fallback-3 {
+    background: linear-gradient(135deg, #047857 0%, #0d9488 45%, #1de9b6 100%);
+}
+.sol-home-slide-content {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+/* Home shop: horizontal scroller + quick view */
+.sol-shop-carousel-clip {
+    margin: 0 2.5rem;
+}
+@media (max-width: 575.98px) {
+    .sol-shop-carousel-clip {
+        margin: 0 1.75rem;
+    }
+}
+.sol-shop-carousel-track {
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--sol-navy) transparent;
+}
+.sol-shop-carousel-track::-webkit-scrollbar {
+    height: 8px;
+}
+.sol-shop-carousel-track::-webkit-scrollbar-track {
+    background: transparent;
+}
+.sol-shop-carousel-track::-webkit-scrollbar-thumb {
+    background-color: var(--sol-navy);
+    border-radius: 999px;
+}
+.sol-shop-carousel-track::-webkit-scrollbar-thumb:hover {
+    background-color: var(--sol-navy-hover);
+}
+.sol-shop-carousel-card {
+    width: 15.5rem;
+    max-width: 80vw;
+    scroll-snap-align: start;
+}
+.sol-shop-carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.95;
+    background-color: var(--sol-navy) !important;
+    color: #fff !important;
+    border: none !important;
+}
+.sol-shop-carousel-nav:hover {
+    background-color: var(--sol-navy-hover) !important;
+    color: #fff !important;
+}
+.sol-shop-carousel-nav:focus-visible {
+    outline: 2px solid var(--sol-navy);
+    outline-offset: 2px;
+}
+.sol-shop-carousel-prev {
+    left: 0;
+}
+.sol-shop-carousel-next {
+    right: 0;
+}
+.sol-shop-product-card .sol-shop-card-hover {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+.sol-shop-product-card:hover .sol-shop-card-hover {
+    opacity: 1;
+    pointer-events: auto;
+}
+.sol-shop-product-card .sol-catalog-wish-fab {
+    z-index: 3;
+}
+.sol-home-footer {
+    background: linear-gradient(180deg, rgba(241, 245, 249, 0.65) 0%, rgba(226, 232, 240, 0.9) 100%);
+}
+
+body.sol-body-plain {
+    background: #f1f5f9;
+    min-height: 100vh;
+}
+
+.sol-navbar {
+    background: var(--sol-nav-bg);
+    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.35);
+}
+
+.sol-navbar .nav-link-custom {
+    color: rgba(255, 255, 255, 0.88) !important;
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background 0.15s, color 0.15s;
+}
+
+.sol-navbar .nav-link-custom:hover,
+.sol-navbar .nav-link-custom.active {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff !important;
+}
+
+/* Navbar: fewer top-level items, tighter spacing on large screens */
+.sol-navbar .sol-nav-toolbar {
+    gap: 0.15rem;
+}
+
+@media (min-width: 992px) {
+    .sol-navbar .sol-nav-toolbar {
+        gap: 0.35rem;
+    }
+
+    .sol-navbar .nav-link-custom {
+        padding: 0.35rem 0.55rem;
+        font-size: 0.875rem;
+    }
+
+    .sol-navbar .navbar-nav .btn {
+        font-size: 0.8125rem;
+    }
+}
+
+.sol-navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0) !important;
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.98%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+/* Ensure white 3-line icon on tablet/mobile regardless of Bootstrap theme sprite */
+.sol-navbar .navbar-toggler-icon {
+    background-image: var(--bs-navbar-toggler-icon-bg) !important;
+    filter: none !important;
+}
+
+.sol-brand-sub {
+    font-size: 0.7rem;
+    opacity: 0.75;
+    letter-spacing: 0.04em;
+}
+
+.sol-navbar-logo {
+    height: 55px;
+    width: auto;
+    max-width: min(140px, 38vw);
+    object-fit: contain;
+    object-position: left center;
+}
+
+.sol-navbar-brand-cluster {
+    min-width: 0;
+}
+
+.sol-navbar-user-toggle {
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.35rem 0.2rem 0.2rem;
+    border: 0;
+    align-items: center !important;
+}
+
+.sol-navbar-user-toggle:hover,
+.sol-navbar-user-toggle:focus-visible,
+.sol-navbar-user-toggle.active {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff !important;
+}
+
+.sol-navbar-user-toggle::after {
+    margin-inline-start: 0.15rem;
+    margin-top: 0;
+    vertical-align: middle;
+}
+
+/* Cart / wishlist line tables: semantic table, headers screen-reader only */
+.sol-line-items-table {
+    --sol-line-thumb: 72px;
+}
+
+.sol-line-items-table caption {
+    caption-side: top;
+}
+
+.sol-line-items-table tbody tr {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.sol-line-items-table tbody tr:last-child {
+    border-bottom: 0;
+}
+
+.sol-line-items-table .sol-line-thumb {
+    width: var(--sol-line-thumb);
+    height: var(--sol-line-thumb);
+    object-fit: cover;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+}
+
+.sol-line-items-table .sol-line-meta {
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: var(--bs-secondary-color);
+    max-width: 36rem;
+}
+
+/* Header mini-cart: scroll area inside dark dropdown */
+.sol-mini-cart-root {
+    max-height: min(72vh, 28rem);
+    overflow-y: auto;
+}
+
+.sol-mini-thumb {
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* My carts trigger: pill + border (matches other nav chips) */
+.sol-navbar .sol-nav-carts-toggle.active,
+.sol-navbar .sol-nav-carts-toggle:hover,
+.sol-navbar .sol-nav-carts-toggle:focus-visible {
+    border-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* Mini-cart primary actions — navy + white (dropdown dark theme) */
+.sol-btn-checkout-blue,
+.sol-btn-checkout-cta {
+    background-color: var(--sol-navy);
+    border-color: rgba(255, 255, 255, 0.9);
+    border-width: 1px;
+    border-style: solid;
+    color: #fff;
+}
+
+.sol-btn-checkout-blue:hover,
+.sol-btn-checkout-blue:focus-visible,
+.sol-btn-checkout-cta:hover,
+.sol-btn-checkout-cta:focus-visible {
+    background-color: var(--sol-navy-hover);
+    border-color: rgba(255, 255, 255, 0.95);
+    color: #fff;
+}
+
+.sol-btn-checkout-blue:active,
+.sol-btn-checkout-cta:active {
+    background-color: var(--sol-navy-active);
+    border-color: rgba(255, 255, 255, 0.95);
+    color: #fff;
+}
+
+/* Shop cart count badge in navbar */
+.sol-navbar .sol-badge-cart-shop {
+    background-color: #1de9b6 !important;
+    color: #042f2e !important;
+}
+
+/* Mini-cart footer links: circular “app icon” chips (left), like social-style tiles */
+.sol-mini-cart-inner .sol-mini-nav-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.95rem;
+    line-height: 1;
+}
+.sol-mini-cart-inner .sol-mini-nav-icon--wishlist {
+    background: rgba(248, 113, 113, 0.22);
+    color: #fecaca;
+}
+.sol-mini-cart-inner .sol-mini-nav-icon--orders {
+    background: rgba(29, 233, 182, 0.28);
+    color: #ccfbf1;
+}
+.sol-mini-cart-inner .sol-mini-nav-icon--rent {
+    background: rgba(52, 211, 153, 0.22);
+    color: #d1fae5;
+}
+.sol-mini-cart-inner .sol-mini-cart-footer-link {
+    text-decoration: none;
+}
+.sol-mini-cart-inner .sol-mini-cart-footer-link:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.sol-card-shell {
+    border: 1px solid var(--sol-card-border);
+    border-radius: 1rem;
+}
+
+.sol-hero-shell {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.1);
+}
+
+.catalog-card-img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Square media style for product cards (shop/catalog + admin products list) */
+.sol-square-product-media {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    overflow: hidden;
+}
+.sol-square-product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}
+
+/* Product detail page split tone: left image area white, right text area light gray */
+.sol-product-detail-card .sol-product-detail-media {
+    background: #fff;
+}
+.sol-product-detail-card .sol-product-detail-content-col {
+    background: #f3f4f6;
+}
+.sol-product-detail-card .sol-product-detail-img {
+    padding: 8px;
+}
+
+/* Wishlist: compact circular heart on catalog / list rows */
+.sol-wishlist-fab .sol-wishlist-fab-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+.sol-wishlist-fab .sol-wishlist-fab-btn i {
+    font-size: 1.05rem;
+}
+.sol-wishlist-fab-btn--saved {
+    background-color: #dc2626 !important;
+    color: #fff !important;
+}
+.sol-wishlist-fab-btn--saved:hover {
+    background-color: #b91c1c !important;
+    color: #fff !important;
+}
+.sol-catalog-card-inner {
+    position: relative;
+}
+.sol-catalog-wish-fab {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 3;
+}
+/* Above .stretched-link::after (z-index 1) so Add to cart stays clickable */
+.sol-catalog-card-actions {
+    position: relative;
+    z-index: 2;
+}
+.sol-instrument-wish-fab {
+    z-index: 3;
+}
+
+/* Instrument rows (catalog + landing) — no card chrome */
+.sol-instrument-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sol-instrument-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    background: #fff;
+    border: 1px solid var(--sol-card-border);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06);
+}
+
+.sol-instrument-row > img,
+.sol-instrument-row .sol-instrument-row-hit img {
+    width: 88px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+}
+.sol-instrument-row .sol-instrument-row-hit {
+    flex: 1 1 200px;
+    min-width: 0;
+}
+
+.sol-instrument-body {
+    flex: 1 1 160px;
+    min-width: 0;
+}
+
+.sol-instrument-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-left: auto;
+}
+
+@media (max-width: 575.98px) {
+    .sol-instrument-actions {
+        width: 100%;
+        margin-left: 0;
+        justify-content: flex-start;
+    }
+}

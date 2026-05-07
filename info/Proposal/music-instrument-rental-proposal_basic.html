@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Instrument Rental Platform - Project Proposal</title>
+    <style>
+      :root {
+        --bg: #f6f8fb;
+        --surface: #ffffff;
+        --text: #1f2937;
+        --muted: #4b5563;
+        --border: #dbe2ea;
+        --accent: #0f766e;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 24px auto;
+        padding: 0 16px 32px;
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 18px;
+      }
+      h1, h2, h3 {
+        margin: 0 0 10px;
+      }
+      h1 {
+        font-size: 28px;
+      }
+      h2 {
+        margin-top: 22px;
+        font-size: 22px;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 6px;
+      }
+      h3 {
+        font-size: 18px;
+      }
+      p {
+        margin: 8px 0;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .stats {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+      }
+      .stat {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 12px;
+      }
+      .stat-label {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .stat-value {
+        font-weight: 700;
+        margin-top: 4px;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 14px;
+      }
+      ul {
+        margin: 6px 0 0 18px;
+        padding: 0;
+      }
+      li {
+        margin: 5px 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 8px;
+      }
+      th, td {
+        border: 1px solid var(--border);
+        text-align: left;
+        padding: 8px;
+        vertical-align: top;
+      }
+      th {
+        background: #eef3f9;
+      }
+      .pill {
+        display: inline-block;
+        font-size: 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 2px 10px;
+        margin-left: 8px;
+        color: var(--accent);
+      }
+      .callout {
+        margin-top: 12px;
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--accent);
+        border-radius: 8px;
+        padding: 10px 12px;
+        background: #f7fcfb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Project Proposal: Music Instrument Rental Platform</h1>
+        <p class="muted">
+          This is a presentation-ready proposal for Requirements Engineering and Project Management,
+          designed to define a clear and defensible path before development begins.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label">Timeline</div>
+            <div class="stat-value">2 sprints / 2 weeks</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Core Features</div>
+            <div class="stat-value">Must-have scope locked</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">User Roles</div>
+            <div class="stat-value">3 primary personas</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Technology</div>
+            <div class="stat-value">Core PHP + MySQL</div>
+          </div>
+        </div>
+
+        <h2>1) Scope and Key Requirements</h2>
+        <div class="two-col">
+          <div>
+            <h3>Customer Features (Must Have)</h3>
+            <ul>
+              <li>Secure registration and login</li>
+              <li>Browse and search instruments</li>
+              <li>Filter by category</li>
+              <li>Submit rental requests with date range and purpose</li>
+              <li>Track request status and cancel pending requests</li>
+              <li>Update profile information</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Admin Features (Must Have)</h3>
+            <ul>
+              <li>Instrument management with image uploads</li>
+              <li>Category management</li>
+              <li>Review, approve/reject, and complete rentals</li>
+              <li>User management with block/unblock</li>
+              <li>Availability tracking based on rental dates</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout">
+          Responsive design, form validation, date validation, secure authentication, and authorization checks are non-negotiable baseline requirements.
+        </div>
+
+        <h2>2) Primary User Personas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Persona</th>
+              <th>Primary Need</th>
+              <th>Pain Point</th>
+              <th>Goal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Maryam - Beginner Student</td>
+              <td>Affordable short-term instrument rental</td>
+              <td>Unsure if she will continue learning</td>
+              <td>Try before buying</td>
+            </tr>
+            <tr>
+              <td>Reza - Music Instructor</td>
+              <td>Fast access to quality instruments for students</td>
+              <td>Manual rental handling is slow and error-prone</td>
+              <td>Reliable and predictable booking flow</td>
+            </tr>
+            <tr>
+              <td>Academy Admin</td>
+              <td>Centralized control over stock and requests</td>
+              <td>Booking conflicts and human mistakes</td>
+              <td>Structured, auditable operations</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>3) Proposed Wireframes (Key Screens)</h2>
+        <div class="two-col">
+          <div>
+            <h3>Customer Side</h3>
+            <ul>
+              <li>Instrument Listing (card grid + filters + search)</li>
+              <li>Instrument Detail (image, specs, daily price, condition)</li>
+              <li>Rental Request Form (start/end date + purpose)</li>
+              <li>My Rentals (pending/approved/rejected/completed)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Admin Side</h3>
+            <ul>
+              <li>Admin Dashboard (KPIs + new requests)</li>
+              <li>Instrument Management (CRUD + image upload)</li>
+              <li>Category Management (CRUD)</li>
+              <li>User Management (status and block controls)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="muted">
+          Note: This proposal defines wireframe scope and screen structure. You should still produce actual visual wireframes in Figma/Excalidraw/draw.io for final submission.
+        </p>
+
+        <h2>4) Proposed ERD (Initial Database Design)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Table</th>
+              <th>Key Fields</th>
+              <th>Relationships</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>users</td>
+              <td>id, full_name, email, password_hash, role, status, phone</td>
+              <td>One-to-many with rental_requests</td>
+            </tr>
+            <tr>
+              <td>categories</td>
+              <td>id, name, description</td>
+              <td>One-to-many with instruments</td>
+            </tr>
+            <tr>
+              <td>instruments</td>
+              <td>id, category_id, name, daily_price, condition, description, image_url, is_active</td>
+              <td>Many-to-one with categories / one-to-many with rental_requests</td>
+            </tr>
+            <tr>
+              <td>rental_requests</td>
+              <td>id, user_id, instrument_id, start_date, end_date, purpose, status, admin_note, requested_at, decided_at</td>
+              <td>Many-to-one with users and instruments</td>
+            </tr>
+            <tr>
+              <td>rental_status_logs</td>
+              <td>id, rental_request_id, old_status, new_status, changed_by_user_id, changed_at</td>
+              <td>Many-to-one with rental_requests</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="muted">
+          Status values: pending, approved, rejected, completed, cancelled. Date rules and booking overlap checks are enforced in the service layer.
+        </p>
+
+        <h2>5) User Stories + Acceptance Criteria</h2>
+        <ul>
+          <li>
+            As a user, I want to register/login securely, so that I can manage my rentals.<br />
+            <span class="muted">AC: Passwords are hashed, duplicate email registration is blocked, and a valid session is created after login.</span>
+          </li>
+          <li>
+            As a user, I want to search and filter instruments, so that I can find a suitable instrument quickly.<br />
+            <span class="muted">AC: Search by name/category, category filters work, and only rentable instruments are shown.</span>
+          </li>
+          <li>
+            As a user, I want to request rental dates, so that I can reserve an instrument for my learning period.<br />
+            <span class="muted">AC: End date must be after start date, past dates are rejected, and initial status is pending.</span>
+          </li>
+          <li>
+            As an admin, I want to approve/reject requests, so that inventory is allocated correctly.<br />
+            <span class="muted">AC: Admin can only approve/reject pending requests, and rejection reason can be saved.</span>
+          </li>
+          <li>
+            As an admin, I want to mark rentals as returned, so that instrument availability is updated.<br />
+            <span class="muted">AC: Only approved requests can be marked completed, and instrument availability is restored.</span>
+          </li>
+          <li>
+            As a user, I want to view my own rental requests only, so that my account data remains private.<br />
+            <span class="muted">AC: A user can access only their own requests; direct URL access to another user's request is denied.</span>
+          </li>
+          <li>
+            As an admin, I want to manage instruments and categories, so that the catalog stays accurate and up to date.<br />
+            <span class="muted">AC: Admin can create/edit/delete records, and category deletion is blocked when instruments are linked.</span>
+          </li>
+          <li>
+            As an admin, I want to block/unblock user accounts, so that policy violations can be controlled.<br />
+            <span class="muted">AC: Blocked users cannot log in or submit requests, while existing historical requests remain visible to admin.</span>
+          </li>
+          <li>
+            As the system, I need rental date overlap checks, so that one instrument cannot be double-booked.<br />
+            <span class="muted">AC: New or approved requests are rejected if they overlap an approved rental window for the same instrument.</span>
+          </li>
+        </ul>
+
+        <h2>6) Sprint Plan (2 Sprints)</h2>
+        <div class="two-col">
+          <div>
+            <h3>Sprint 1 <span class="pill">Week 1</span></h3>
+            <ul>
+              <li>Database design + ERD + SQL schema scripts</li>
+              <li>Auth (Register/Login/Session/Role)</li>
+              <li>Instrument list/detail/search/filter</li>
+              <li>Rental request submission + date validation</li>
+              <li>Trello Backlog to UpNext ready for execution</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Sprint 2 <span class="pill">Week 2</span></h3>
+            <ul>
+              <li>Admin panel (instrument/category CRUD)</li>
+              <li>End-to-end rental request management</li>
+              <li>User management (block/unblock)</li>
+              <li>Complete My Rentals and cancel pending flow</li>
+              <li>Final core-feature validation and demo readiness</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>7) Suggested Task Board Structure</h2>
+        <p>Columns: Backlog → UpNext → InProgress → Done</p>
+        <p class="muted">
+          Definition of Done: merged code, validation completed, core manual user flow passed, and role-based permissions verified.
+        </p>
+
+        <h2>8) Pro Add-on Upgrade Scope (Basic → Pro)</h2>
+        <div class="two-col">
+          <div>
+            <h3>Public Website Expansion</h3>
+            <ul>
+              <li>Full homepage with hero, featured rentals, and featured products</li>
+              <li>About Us, Contact Us, FAQ, Terms, and Privacy pages</li>
+              <li>Consistent navigation and footer across all pages</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Store Expansion</h3>
+            <ul>
+              <li>Store listing and product detail refinement</li>
+              <li>Cart, checkout, and order history flows</li>
+              <li>Admin order management and status tracking</li>
+            </ul>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Pro Table Additions</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>orders</td>
+              <td>Store customer orders and lifecycle status</td>
+            </tr>
+            <tr>
+              <td>order_items</td>
+              <td>Store line items for each order</td>
+            </tr>
+            <tr>
+              <td>contact_messages</td>
+              <td>Store support/contact submissions from website visitors</td>
+            </tr>
+            <tr>
+              <td>faq_items</td>
+              <td>Manage FAQ entries from admin panel</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="muted">
+          Integration rule: the project remains one unified system. The Pro scope is implemented as an extension layer, then merged into the same final branch and release package.
+        </p>
+
+      
+      </div>
+    </div>
+  </body>
+</html>
