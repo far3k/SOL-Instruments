@@ -1,3 +1,9 @@
+Authors:
+-Farbod 
+-Alister
+-Nawaz 
+
+
 # SOL-A — Instrument Rental & Accessories Shop
 
 SOL-A is a PHP + MySQL (MariaDB) web app for:
